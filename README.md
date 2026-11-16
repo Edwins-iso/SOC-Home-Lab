@@ -222,11 +222,24 @@ let WindowsEvents = SecurityEvent
     | order by TimeGenerated desc
     | evaluate ipv4_lookup(GeoIPDB_FULL, IpAddress, network);
 WindowsEvents
-- Observe the logs now have geographic information, so you can see where the attacks are coming from
+- Observe the logs now have geographic information, so you can see where the attacks are coming from.
 <br />
 <br />
 
 <h3>Part 4: The Attack Map</h3>
+
+<p align="center">
+Import Sentinel Watch-list Spreadsheet<br/>
+<img src="https://imgur.com/54W2OAq.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/CkE2LRd.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/ETud7r8.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+
+- Back in Defender, Create a new workbook. Edit> Advanced editor> Delete populated data > Copy and paste Json [[Map.json](https://drive.google.com/file/d/1ErlVEK5cQjpGyOcu4T02xYy7F31dWuir/view?usp=drive_link)]> Apply> Edit the Map and run the query.
+- Save the attack map with the above settings.
+- And we're done! Now there's a visual for the geographic IP's provided by the log sheet!
+<br />
+<br />
+
 <!--
  ```diff
 - text in red
