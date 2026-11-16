@@ -178,19 +178,6 @@ Install Microsoft Security Events:<br/>
 - Back in Azure, you should be able to see the data collection rule listed as an extension in the VM's settings
 <br />
 <br />
-<p align="center">
-Verify the Integrity monitoring:<br/>
-<p align="center">
-<img src="https://imgur.com/j9zvrcf.png" height="100%" width="100%" alt="Disk Sanitization Steps"/>
-<img src="https://imgur.com/DXoL8Sp.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
-
-- Open the Wazuh Dashboard in your browser.
-- Navigate to Agents → ensure the Windows agent is listed and status is Active.
-- Go to the Integrity Monitoring section.
-- Perform actions (create/modify/delete files) in the monitored folder.
-- Confirm that alerts appear in the dashboard.
-<br />
-<br />
 
 <!--
  ```diff
