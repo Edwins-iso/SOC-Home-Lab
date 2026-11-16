@@ -3,7 +3,7 @@
 <h2>Description</h2>
 (Documentation in progress) 
 
-In this project, I set up a basic home SOC in Azure from scratch. Using a free Azure subscription, I will walk-through creating a virtual machine (VM), opening it to the internet as a honeypot, and forwarding logs to a central repository. Them I will  integrate Microsoft Sentinel to analyze real-world attack data.
+In this project, I set up a basic home SOC in Azure from scratch. Using a free Azure subscription, I will walk-through creating a virtual machine (VM), opening it to the internet as a honeypot, and forwarding logs to a central repository. Then, I will  integrate Microsoft Sentinel to analyze real-world attack data and create an attack map.
 
 <br />
 
