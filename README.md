@@ -35,7 +35,7 @@ For anyone without an Azure account. Microsoft does offer a free trial with 200 
 <br />
 <br />
   
-<h3>Part 1: Creating the Honeypot with an Azure Virtual Machine:</h3>
+<h3>Part 1: Creating the Honeypot with an Azure Virtual Machine</h3>
 
 <p align="center">
 Go to: https://portal.azure.com and create a resource groups:<br/>
@@ -114,7 +114,7 @@ Confirm the machine is accessible to the open internet:<br/>
 <br />
 <br />
 
-<h3>Part 2: Log Forwarding and KQL:</h3>
+<h3>Part 2: Log Forwarding and KQL</h3>
 
 <p align="center">
 While connecting back into the Azure VM, Fail 3-5 log in attempts:<br/>
@@ -192,6 +192,41 @@ Querying Our Log Repository with KQL:<br/>
 - Now let's find out where these hackers are coming from.
 <br />
 <br />
+
+<h3>Part 3: Log Enrichment and Finding Location Data</h3>
+
+<p align="center">
+Import Sentinel Watch-list Spreadsheet<br/>
+<img src="https://imgur.com/Yp7GWcs.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/BFamNVB.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/V3egUau.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
+
+- Download: geoip-summarized.csv 
+- This file is a spreadsheet that summarizes the geographical locations tied to IP numbers. This watchlist will add more variables to the log columns, related to the attackers IP.
+- Open Microsft Defender and search for "Watchlists", then create one.
+- Configure settings as shown above and import the csv file when prompted to upload.
+- Create!
+<br />
+<br />
+<p align="center">
+Import Sentinel Watch-list Spreadsheet<br/>
+<img src="https://imgur.com/4Tnwl41.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/FD0i0ko.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/fnDt2Ao.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
+
+- Back in Azure, copy any of the IP addresses of the attackers that have failed to log on and add it to the query below, in KQL mode.
+- let GeoIPDB_FULL = _GetWatchlist("geoip");
+let WindowsEvents = SecurityEvent
+    | where IpAddress == <attacker IP address>
+    | where EventID == 4625
+    | order by TimeGenerated desc
+    | evaluate ipv4_lookup(GeoIPDB_FULL, IpAddress, network);
+WindowsEvents
+- Observe the logs now have geographic information, so you can see where the attacks are coming from
+<br />
+<br />
+
+<h3>Part 4: The Attack Map</h3>
 <!--
  ```diff
 - text in red
