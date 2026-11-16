@@ -236,7 +236,7 @@ Import Sentinel Watch-list Spreadsheet<br/>
 
 - Back in Defender, Create a new workbook. Edit> Advanced editor> Delete populated data > Copy and paste Json [[Map.json](https://drive.google.com/file/d/1ErlVEK5cQjpGyOcu4T02xYy7F31dWuir/view?usp=drive_link)]> Apply> Edit the Map and run the query.
 - Save the attack map with the above settings.
-- And we're done! Now there's a visual for the geographic IP's provided by the log sheet!
+- And we're done! Now there's a visual for the geographic IP's provided by the log sheet! And back at the top of this repo, we can look back on the architecture of this project.
 <br />
 <br />
 
