@@ -176,9 +176,22 @@ Install Microsoft Security Events:<br/>
 <img src="https://imgur.com/DpCBd9V.png" height="70%" width="70%" alt="Disk Sanitization Steps"/>
 
 - Back in Azure, you should be able to see the data collection rule listed as an extension in the VM's settings
+- Now the VM's logs are connected to the Log Analytics Workspace!
 <br />
 <br />
+<p align="center">
+Querying Our Log Repository with KQL:<br/>
+<img src="https://imgur.com/VscD44q.png" height="50%" width="50%" alt="Disk Sanitization Steps"/>
 
+- In Azure, Navigate to the Log Analytics Workspace then open the Log tab.
+- in the top right, Change the viewing mode from simple to KQL.
+- then type "SecurityEvent"
+- Run
+- If nothing shows up check back every 30 minutes, repeat until queries show up.
+- Once we start to see some queries, like shown above, that means the VM is officially under attack by hackers trying to gain access to the machine!
+- Now let's find out where these hackers are coming from.
+<br />
+<br />
 <!--
  ```diff
 - text in red
